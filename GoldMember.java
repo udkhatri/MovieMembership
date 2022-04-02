@@ -7,10 +7,12 @@ public class GoldMember extends SilverMember implements VIPPrivilege {
     public GoldMember(String memberName) {
         super(memberName,0.25,2.0);
         this.validCredentials = false;
+        super.addPoint(50);
     }
     public GoldMember(String memberName, String nextMovie, String theatreType, int showHour, int showMinutes,String snack) {
         super(memberName, nextMovie, theatreType, showHour, showMinutes, snack,0.25,2.0);
         this.validCredentials = false;
+        super.addPoint(50);
     }
 
     @Override
@@ -34,7 +36,12 @@ public class GoldMember extends SilverMember implements VIPPrivilege {
     }
     @Override
     public String purchaseAlcohol() {
-        return null;
+        if (this.validCredentials) {
+            super.setSnack("Alcohol");
+            return "Enjoy your beverages.";
+        } else {
+            return "Beverage cannot be purchased because no valid password has been entered.";
+        }
     }
     
 }

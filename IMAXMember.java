@@ -3,6 +3,7 @@ public class IMAXMember extends MovieMembership{
     private double discountRate;
     private double pointsRate;
 
+    // constructors
     public IMAXMember(String memberName) {
         super(memberName);
         if(super.getTheatreType() == "IMAX"){
@@ -18,16 +19,20 @@ public class IMAXMember extends MovieMembership{
             this.pointsRate = 1.3;
         }
     }
+
+    // getter methods (overrides)
     public String getMemberDetails(){
         return super.getMemberDetails() + "They have "+ returnMembershipRank() + "membership."; 
     }
+
+    // overridden abstract methods
     @Override
     public String returnMembershipRank() {
         return "IMAX";
     }
     @Override
     public String printMemberBenefits() {
-        return "Discount rate for IMAX members is,  " + discountRate + " and point rate is,  " + pointsRate;
+        return "Discount rate for IMAX members is " + discountRate + " and point rate is " + pointsRate;
     }
     @Override
     public void purchaseMovieTicket(Double ticketPrice, String nextMovie, String theatreType, int showHour,
@@ -44,8 +49,8 @@ public class IMAXMember extends MovieMembership{
                     priceWithDiscount = ticketPrice * (1 - discountRate);
                     super.addPoint((int) (ticketPrice * pointsRate));
                 }
-
-                System.out.println("The Movie "+ super.getNextMovie() + " has been purchased by " + super.getMemberName() + " for " + priceWithDiscount + "and will be showing at" + super.displayShowTime() + " with" + super.getTheatreType() + " screening. They have eared " + super.getPoints() + " points.");
+                System.out.println(" ");
+                System.out.println("The Movie "+ super.getNextMovie() + " has been purchased by " + super.getMemberName() + " for " + priceWithDiscount + "$ and will be showing at" + super.displayShowTime() + " with" + super.getTheatreType() + " screening. They have eared " + super.getPoints() + " points.");
         
     }
 

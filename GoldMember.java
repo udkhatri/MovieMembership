@@ -4,6 +4,7 @@ public class GoldMember extends SilverMember implements VIPPrivilege {
 
     private boolean validCredentials;
 
+    // constructors
     public GoldMember(String memberName) {
         super(memberName,0.25,2.0);
         this.validCredentials = false;
@@ -14,7 +15,8 @@ public class GoldMember extends SilverMember implements VIPPrivilege {
         this.validCredentials = false;
         super.addPoint(50);
     }
-
+    
+    // overridden abstract methods
     @Override
     public String returnMembershipRank(){
         return "Gold";
@@ -25,14 +27,15 @@ public class GoldMember extends SilverMember implements VIPPrivilege {
     @Override
     public void accessVIPLounge() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Please enter your password: ");
-        String password = input.nextLine();
-        if (password.equals(PASSWORD)) {
+        System.out.print("Please enter your password: ");
+        int password = input.nextInt();
+        if (password == PASSWORD) {
             this.validCredentials = true;
             System.out.println("Access granted!");
         } else {
             System.out.println("Invalid password. You have been denied access.");
         }
+        input.close();
     }
     @Override
     public String purchaseAlcohol() {

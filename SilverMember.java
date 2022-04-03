@@ -30,7 +30,6 @@ public class SilverMember extends MovieMembership{
         return super.getMemberDetails() + "They have "+ returnMembershipRank() + "membership."; 
     }
 
-
     // overridden abstract methods
     @Override
     public String returnMembershipRank() {
@@ -38,7 +37,7 @@ public class SilverMember extends MovieMembership{
     }
     @Override
     public String printMemberBenefits() {
-        return "Discount rate for Silver members is,  " + discountRate + " and point rate is,  " + pointsRate;
+        return "Discount rate for Silver members is " + discountRate + " and point rate is " + pointsRate;
     }
     @Override
     public void purchaseMovieTicket(Double ticketPrice, String nextMovie, String theatreType, int showHour,
@@ -50,8 +49,8 @@ public class SilverMember extends MovieMembership{
                 super.addPoint((int) (ticketPrice * pointsRate));
 
                 double priceWithDiscount = ticketPrice * (1 - discountRate);
-
-                System.out.println("The Movie "+ super.getNextMovie() + " has been purchased by " + super.getMemberName() + " for " + priceWithDiscount + "and will be showing at" + super.displayShowTime() + " with" + super.getTheatreType() + " screening. They have eared " + super.getPoints() + " points.");
+                System.out.println("");
+                System.out.println("The Movie "+ super.getNextMovie() + " has been purchased by " + super.getMemberName() + " for " + priceWithDiscount + "$ and will be showing at" + super.displayShowTime() + " with" + super.getTheatreType() + " screening. They have eared " + super.getPoints() + " points.");
     }
     
 }

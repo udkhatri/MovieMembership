@@ -10,6 +10,7 @@ public abstract class MovieMembership {
     private int showMinutes;
     private int points;
     
+    // constructor with 6 parameters
     public MovieMembership(String memberName, String nextMovie, String theatreType, int showHour, int showMinutes,String snack) {
         this.memberName = memberName;
         this.nextMovie = nextMovie;
@@ -19,6 +20,8 @@ public abstract class MovieMembership {
         this.showMinutes = showMinutes;
         this.points = 0;
     }
+
+    // constructor with single parameter
     public MovieMembership(String memberName) {
         this.memberName = memberName;
         this.nextMovie = "unknown";
@@ -46,7 +49,7 @@ public abstract class MovieMembership {
         return theatreType;
     }
     public String getMemberDetails() {
-        return memberName + "is watching " + nextMovie + "with " + theatreType + "screening at " + displayShowTime() + ". They will have " + snack + "as a snacks and they have " + points + "points.";
+        return memberName + " is watching " + nextMovie + " with " + theatreType + " screening at " + displayShowTime() + ". They will have " + snack + " as a snacks and they have " + points + " points.";
     }
     public String displayShowTime() {
         return showHour + ":" + showMinutes;
